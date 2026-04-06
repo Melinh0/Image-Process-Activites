@@ -1,3 +1,6 @@
+import numpy as np
+from PIL import Image
+
 def gamma_correction(image_path, output_path, gamma):
     img = Image.open(image_path).convert('L')  # 'L' = escala de cinza
     img_array = np.array(img, dtype=np.float32)
