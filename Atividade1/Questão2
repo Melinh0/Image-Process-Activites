@@ -1,0 +1,8 @@
+def gamma_correction(image_path, output_path, gamma):
+    img = Image.open(image_path).convert('L')  # 'L' = escala de cinza
+    img_array = np.array(img, dtype=np.float32)
+    normalized = img_array / 255.0
+    corrected = np.power(normalized, 1.0/gamma) * 255.0
+    corrected = np.clip(corrected, 0, 255).astype(np.uint8)
+    Image.fromarray(corrected).save(output_path)
+    return corrected

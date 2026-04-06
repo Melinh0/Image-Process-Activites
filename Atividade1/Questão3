@@ -1,0 +1,8 @@
+def weighted_blend(img1_path, img2_path, output_path, alpha=0.5):
+    img1 = Image.open(img1_path).convert('L')
+    img2 = Image.open(img2_path).convert('L')
+    arr1 = np.array(img1, dtype=np.float32)
+    arr2 = np.array(img2, dtype=np.float32)
+    blended = (alpha * arr1 + (1 - alpha) * arr2).astype(np.uint8)
+    Image.fromarray(blended).save(output_path)
+    return blended
