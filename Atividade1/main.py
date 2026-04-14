@@ -7,7 +7,7 @@ from Questao5 import create_mosaic
 from Questao6 import quantize
 
 def main():
-    base_path = Path("/home/yago/Image-Process-Activites/images")
+    base_path = Path("images")
     img1 = base_path / "imagem1.jpeg"
     img2 = base_path / "imagem2.jpeg"
     img3 = base_path / "imagem3.jpeg"

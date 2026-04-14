@@ -11,7 +11,6 @@ def create_mosaic(image_path, output_path, block_size):
         for j in range(block_size):
             block = img_array[i*block_h:(i+1)*block_h, j*block_w:(j+1)*block_w]
             blocks.append(block)
-    # Mapeamento da nova ordem (exemplo de permutação)
     new_order = [0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15]
     mosaic = np.zeros_like(img_array)
     for idx, new_idx in enumerate(new_order):

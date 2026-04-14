@@ -2,12 +2,10 @@ import numpy as np
 from PIL import Image
 
 def rgb_to_grayscale(img_array):
-    """Conversão manual de RGB para escala de cinza."""
     r, g, b = img_array[:,:,0], img_array[:,:,1], img_array[:,:,2]
     return (0.299 * r + 0.587 * g + 0.114 * b).astype(np.uint8)
 
 def gaussian_kernel(size, sigma=1):
-    """Cria um kernel Gaussiano 2D normalizado."""
     kernel = np.fromfunction(
         lambda x, y: (1/(2*np.pi*sigma**2)) * np.exp(-((x-(size-1)/2)**2 + (y-(size-1)/2)**2) / (2*sigma**2)),
         (size, size)
@@ -15,7 +13,6 @@ def gaussian_kernel(size, sigma=1):
     return kernel / np.sum(kernel)
 
 def convolve(img, kernel):
-    """Aplica convolução manual com padding."""
     k_size = kernel.shape[0]
     pad = k_size // 2
     img_pad = np.pad(img, pad, mode='edge')
