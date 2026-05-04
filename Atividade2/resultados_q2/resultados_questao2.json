@@ -1,0 +1,94 @@
+{
+  "input": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\images\\imagem3.jpeg",
+  "outdir": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade2\\resultados_q2",
+  "parametros": {
+    "low_high_radii": [
+      15,
+      30,
+      60
+    ],
+    "band_pairs": [
+      [
+        10,
+        30
+      ],
+      [
+        20,
+        50
+      ]
+    ],
+    "compress_thresholds": [
+      70,
+      85,
+      95
+    ]
+  },
+  "filtros": [
+    {
+      "tipo": "passa-baixa",
+      "parametro": "r=15"
+    },
+    {
+      "tipo": "passa-alta",
+      "parametro": "r=15"
+    },
+    {
+      "tipo": "passa-baixa",
+      "parametro": "r=30"
+    },
+    {
+      "tipo": "passa-alta",
+      "parametro": "r=30"
+    },
+    {
+      "tipo": "passa-baixa",
+      "parametro": "r=60"
+    },
+    {
+      "tipo": "passa-alta",
+      "parametro": "r=60"
+    },
+    {
+      "tipo": "passa-faixa",
+      "parametro": "r1=10,r2=30"
+    },
+    {
+      "tipo": "rejeita-faixa",
+      "parametro": "r1=10,r2=30"
+    },
+    {
+      "tipo": "passa-faixa",
+      "parametro": "r1=20,r2=50"
+    },
+    {
+      "tipo": "rejeita-faixa",
+      "parametro": "r1=20,r2=50"
+    }
+  ],
+  "compressao": [
+    {
+      "percentil": 70,
+      "limiar": 11142.9306640625,
+      "coeficientes_totais": 24000000,
+      "coeficientes_mantidos": 7200002,
+      "taxa_zerados": 0.6999999166666667,
+      "image": "resultados_q2\\03_compressao/compressao_percentil_70.png"
+    },
+    {
+      "percentil": 85,
+      "limiar": 20266.072265625,
+      "coeficientes_totais": 24000000,
+      "coeficientes_mantidos": 3600001,
+      "taxa_zerados": 0.8499999583333333,
+      "image": "resultados_q2\\03_compressao/compressao_percentil_85.png"
+    },
+    {
+      "percentil": 95,
+      "limiar": 46175.875,
+      "coeficientes_totais": 24000000,
+      "coeficientes_mantidos": 1200001,
+      "taxa_zerados": 0.9499999583333333,
+      "image": "resultados_q2\\03_compressao/compressao_percentil_95.png"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[project]
+name = "atividade-pdi"
+version = "1.0.0"
+dependencies = [
+    "numpy>=1.24",
+    "pillow>=9.0",
+    "matplotlib>=3.5",
+]
+requires-python = ">=3.9"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = []

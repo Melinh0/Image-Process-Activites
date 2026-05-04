@@ -1,0 +1,112 @@
+{
+  "h1": {
+    "kernel_shape": [
+      3,
+      3
+    ],
+    "min": 3.5555553436279297,
+    "max": 251.6666717529297,
+    "mean": 132.5081024169922,
+    "image": "resultados_q1\\q1_h1.png"
+  },
+  "h2": {
+    "kernel_shape": [
+      5,
+      5
+    ],
+    "min": 4.469145774841309,
+    "max": 251.32864379882812,
+    "mean": 132.509033203125,
+    "image": "resultados_q1\\q1_h2.png"
+  },
+  "h3": {
+    "kernel_shape": [
+      3,
+      3
+    ],
+    "min": -943.0,
+    "max": 983.0,
+    "mean": 0.08167889714241028,
+    "image": "resultados_q1\\q1_h3.png"
+  },
+  "h4": {
+    "kernel_shape": [
+      3,
+      3
+    ],
+    "min": -949.0,
+    "max": 914.0,
+    "mean": -0.2721651494503021,
+    "image": "resultados_q1\\q1_h4.png"
+  },
+  "h5": {
+    "kernel_shape": [
+      3,
+      3
+    ],
+    "min": -700.0,
+    "max": 731.0,
+    "mean": 0.061220183968544006,
+    "image": "resultados_q1\\q1_h5.png"
+  },
+  "h6": {
+    "kernel_shape": [
+      3,
+      3
+    ],
+    "min": -710.0,
+    "max": 678.0,
+    "mean": -0.2041330337524414,
+    "image": "resultados_q1\\q1_h6.png"
+  },
+  "h7": {
+    "kernel_shape": [
+      3,
+      3
+    ],
+    "min": -581.0,
+    "max": 543.0,
+    "mean": -0.0016467890236526728,
+    "image": "resultados_q1\\q1_h7.png"
+  },
+  "h8": {
+    "kernel_shape": [
+      3,
+      3
+    ],
+    "min": -579.0,
+    "max": 772.0,
+    "mean": 132.5059051513672,
+    "image": "resultados_q1\\q1_h8.png"
+  },
+  "h9": {
+    "kernel_shape": [
+      3,
+      3
+    ],
+    "min": -802.0,
+    "max": 1102.0,
+    "mean": 132.36463928222656,
+    "image": "resultados_q1\\q1_h9.png"
+  },
+  "h10": {
+    "kernel_shape": [
+      5,
+      5
+    ],
+    "min": 6.12000036239624,
+    "max": 251.1199951171875,
+    "mean": 132.51177978515625,
+    "image": "resultados_q1\\q1_h10.png"
+  },
+  "h11": {
+    "kernel_shape": [
+      5,
+      5
+    ],
+    "min": -133.4187774658203,
+    "max": 395.75775146484375,
+    "mean": 132.50608825683594,
+    "image": "resultados_q1\\q1_h11.png"
+  }
+}
