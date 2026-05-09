@@ -2,8 +2,6 @@ import json
 from pathlib import Path
 from datetime import datetime
 from fpdf import FPDF
-import io
-import sys
 
 def sanitize_text(text):
     replacements = {
@@ -40,6 +38,8 @@ RESULTS_Q2_DIR = BASE_DIR / "Atividade2" / "resultados_q2"
 JSON_Q1 = RESULTS_Q1_DIR / "resultados_q1.json"
 JSON_Q2 = RESULTS_Q2_DIR / "resultados_questao2.json"
 OUTPUT_PDF = BASE_DIR / "Atividade2" / "reports" / "Relatorio_Atividade2.pdf"
+CODE_Q1 = BASE_DIR / "Atividade2" / "questao1_filtros_espaciais.py"
+CODE_Q2 = BASE_DIR / "Atividade2" / "questao2_filtros_frequencia.py"
 
 class PDF(FPDF):
     def __init__(self, capture_sections=False):
@@ -132,6 +132,27 @@ class PDF(FPDF):
                 current_y += img_h + spacing_y
 
         self.set_y(current_y + img_h + spacing_y)
+
+    def add_code_file(self, filepath, title):
+        """Adiciona um arquivo de código fonte ao PDF com formatação monoespaçada."""
+        if not filepath.exists():
+            self.body_text(f"Arquivo não encontrado: {filepath}")
+            return
+        self.subsection_title(title)
+        with open(filepath, "r", encoding="utf-8") as f:
+            code_lines = f.readlines()
+        self.set_font("Courier", "", 8)
+        for line in code_lines:
+            # Remove trailing newline, sanitiza, e adiciona linha
+            line = line.rstrip('\n')
+            if len(line) > 0:
+                sanitized = sanitize_text(line)
+            else:
+                sanitized = ""
+            # Quebra manual se a linha for muito longa? O multi_cell quebra automaticamente
+            self.multi_cell(0, 4, sanitized)
+        self.ln(4)
+        self.set_font("Arial", "", 11)  # volta ao normal
 
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -284,6 +305,16 @@ def build_content(pdf, is_capture_pass=False):
         "das imagens."
     )
 
+    pdf.add_page()
+    pdf.section_title("8. Códigos Implementados")
+    pdf.body_text(
+        "Os códigos-fonte utilizados para gerar os resultados são apresentados a seguir. "
+        "O primeiro arquivo implementa os filtros espaciais (Questão 1) e o segundo "
+        "implementa a filtragem no domínio da frequência (Questão 2)."
+    )
+    pdf.add_code_file(CODE_Q1, "questao1_filtros_espaciais.py")
+    pdf.add_code_file(CODE_Q2, "questao2_filtros_frequencia.py")
+
     pdf.section_title("7. Referências")
     pdf.body_text(
         "GONZALEZ, R. C.; WOODS, R. E. Digital Image Processing.\n"
@@ -345,13 +376,13 @@ def main():
         "4. Questão 1 – Filtros Espaciais",
         "5. Questão 2 – Filtragem no Domínio da Frequência",
         "6. Conclusão",
-        "7. Referências"
+        "7. Referências",
+        "8. Códigos Implementados"
     ]
     pdf.set_font("Arial", "", 12)
     for titulo in ordem:
         if titulo in page_of:
-            num_pag = page_of[titulo] + 1
-            pagina_real = num_pag 
+            pagina_real = page_of[titulo] + 2
         else:
             pagina_real = "?"
         pdf.cell(0, 8, sanitize_text(f"{titulo} .................... {pagina_real}"), ln=1)
