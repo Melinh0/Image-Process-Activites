@@ -112,7 +112,6 @@ def main():
     results_filters = []
 
     for r in radii:
-        # lowpass
         lp_mask = lowpass_mask(D, r)
         save_u8((lp_mask*255).astype(np.uint8), sub(f"01_masks/mask_passabaixa_r{r}.png"))
         lp_img, lp_spec = apply_filter(F_shift, lp_mask)
@@ -120,7 +119,6 @@ def main():
         save_u8(lp_spec, sub(f"02_filtradas/espectro_passabaixa_r{r}.png"))
         results_filters.append(("passa-baixa", f"r={r}", lp_img))
 
-        # highpass
         hp_mask = highpass_mask(D, r)
         save_u8((hp_mask*255).astype(np.uint8), sub(f"01_masks/mask_passaalta_r{r}.png"))
         hp_img, hp_spec = apply_filter(F_shift, hp_mask)
