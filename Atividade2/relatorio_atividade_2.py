@@ -29,17 +29,18 @@ def sanitize_text(text):
     text = text.encode('latin-1', errors='replace').decode('latin-1')
     return text
 
-BASE_DIR = Path(r"C:\Users\yagom\Documents\GitHub\Image-Process-Activites")
+SCRIPT_DIR = Path(__file__).resolve().parent
+BASE_DIR = SCRIPT_DIR.parent
 IMAGES_DIR = BASE_DIR / "images"
 INPUT_IMAGE_Q1 = IMAGES_DIR / "imagem2.jpeg"
 INPUT_IMAGE_Q2 = IMAGES_DIR / "imagem3.jpeg"
-RESULTS_Q1_DIR = BASE_DIR / "Atividade2" / "resultados_q1"
-RESULTS_Q2_DIR = BASE_DIR / "Atividade2" / "resultados_q2"
+RESULTS_Q1_DIR = SCRIPT_DIR / "resultados_q1"
+RESULTS_Q2_DIR = SCRIPT_DIR / "resultados_q2"
 JSON_Q1 = RESULTS_Q1_DIR / "resultados_q1.json"
 JSON_Q2 = RESULTS_Q2_DIR / "resultados_questao2.json"
-OUTPUT_PDF = BASE_DIR / "Atividade2" / "reports" / "Relatorio_Atividade2.pdf"
-CODE_Q1 = BASE_DIR / "Atividade2" / "questao1_filtros_espaciais.py"
-CODE_Q2 = BASE_DIR / "Atividade2" / "questao2_filtros_frequencia.py"
+OUTPUT_PDF = SCRIPT_DIR / "reports" / "Relatorio_Atividade2.pdf"
+CODE_Q1 = SCRIPT_DIR / "questao1_filtros_espaciais.py"
+CODE_Q2 = SCRIPT_DIR / "questao2_filtros_frequencia.py"
 
 class PDF(FPDF):
     def __init__(self, capture_sections=False):
