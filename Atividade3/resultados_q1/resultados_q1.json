@@ -1,0 +1,37 @@
+{
+  "0_5": {
+    "q_scale": 0.5,
+    "psnr": 47.2461,
+    "mae": 0.7153,
+    "reconstructed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\reconstruida_q0_5.png",
+    "diff": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\diferenca_q0_5.png"
+  },
+  "1_0": {
+    "q_scale": 1.0,
+    "psnr": 38.5843,
+    "mae": 1.927,
+    "reconstructed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\reconstruida_q1_0.png",
+    "diff": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\diferenca_q1_0.png"
+  },
+  "2_0": {
+    "q_scale": 2.0,
+    "psnr": 35.3761,
+    "mae": 2.8772,
+    "reconstructed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\reconstruida_q2_0.png",
+    "diff": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\diferenca_q2_0.png"
+  },
+  "4_0": {
+    "q_scale": 4.0,
+    "psnr": 32.0876,
+    "mae": 4.2916,
+    "reconstructed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\reconstruida_q4_0.png",
+    "diff": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\diferenca_q4_0.png"
+  },
+  "8_0": {
+    "q_scale": 8.0,
+    "psnr": 28.7637,
+    "mae": 6.5177,
+    "reconstructed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\reconstruida_q8_0.png",
+    "diff": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade3\\resultados_q1\\diferenca_q8_0.png"
+  }
+}

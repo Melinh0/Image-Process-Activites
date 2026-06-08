@@ -1,0 +1,22 @@
+{
+  "imagem1": {
+    "mean": 135.1213,
+    "variance": 5475.6816,
+    "std": 73.9978,
+    "energy": 23733.4408,
+    "entropy": 7.4769,
+    "spatial_variation_horizontal": 4.1177,
+    "spatial_variation_vertical": 4.6523,
+    "spatial_variation_total": 4.3851
+  },
+  "imagem2": {
+    "mean": 132.5076,
+    "variance": 6514.1655,
+    "std": 80.7104,
+    "energy": 24072.4179,
+    "entropy": 7.512,
+    "spatial_variation_horizontal": 12.485,
+    "spatial_variation_vertical": 11.4234,
+    "spatial_variation_total": 11.9541
+  }
+}
