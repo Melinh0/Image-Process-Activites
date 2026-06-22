@@ -1,6 +1,8 @@
 # 🖼️ Image-Process-Activites
 
-Repositório com implementações de técnicas de **Processamento Digital de Imagens** desenvolvidas como atividades acadêmicas. Os experimentos abrangem filtragem espacial e em frequência, transformada DCT, compressão estilo JPEG, descritores de imagem, mosaico, quantização, entre outros.
+Repositório com implementações de técnicas de **Processamento Digital de Imagens** desenvolvidas como atividades acadêmicas. Os experimentos abrangem filtragem espacial e em frequência, transformada DCT, compressão estilo JPEG, descritores de imagem, mosaico, quantização, morfologia matemática, detecção de bordas, HOG e segmentação por watershed.
+
+**Data de geração do relatório:** 22/06/2026 19:30:21
 
 ---
 
@@ -9,6 +11,7 @@ Repositório com implementações de técnicas de **Processamento Digital de Ima
 - `Atividade1/` – Operações básicas (esboço a lápis, correção gama, blend, mosaico, quantização)
 - `Atividade2/` – Filtros espaciais (convolução) e filtragem no domínio da frequência (FFT)
 - `Atividade3/` – Compressão DCT (JPEG simplificado) e descritores estatísticos de imagem
+- `Atividade4/` – Morfologia matemática, Canny (gradiente), HOG e segmentação por watershed
 
 ---
 
@@ -255,5 +258,105 @@ Foram calculados média, variância, desvio padrão, energia, entropia e variaç
 | Energia | 23733.4408 | 24072.4179 |
 | Entropia (bits) | 7.4769 | 7.512 |
 | Variação espacial total | 4.3851 | 11.9541 |
+
+---
+## 🧬 Atividade 4 – Morfologia, Gradiente, HOG e Watershed
+
+### 🧩 Questão 1 – Operações Morfológicas
+
+Foram aplicadas erosão, dilatação, abertura e fechamento em imagens binárias (limiarizadas) com elementos estruturantes de tamanhos 3, 5 e 15. Os resultados estão em `Atividade4/resultados_q1/`.
+
+#### Imagem: imagem1.jpeg
+
+**SE = se_3**  
+Eroded: ![Imagem](Atividade4/resultados_q1/imagem1_erodido_3.png)  
+Dilated: ![Imagem](Atividade4/resultados_q1/imagem1_dilatado_3.png)  
+Opened: ![Imagem](Atividade4/resultados_q1/imagem1_abertura_3.png)  
+Closed: ![Imagem](Atividade4/resultados_q1/imagem1_fechamento_3.png)  
+
+**SE = se_5**  
+Eroded: ![Imagem](Atividade4/resultados_q1/imagem1_erodido_5.png)  
+Dilated: ![Imagem](Atividade4/resultados_q1/imagem1_dilatado_5.png)  
+Opened: ![Imagem](Atividade4/resultados_q1/imagem1_abertura_5.png)  
+Closed: ![Imagem](Atividade4/resultados_q1/imagem1_fechamento_5.png)  
+
+**SE = se_15**  
+Eroded: ![Imagem](Atividade4/resultados_q1/imagem1_erodido_15.png)  
+Dilated: ![Imagem](Atividade4/resultados_q1/imagem1_dilatado_15.png)  
+Opened: ![Imagem](Atividade4/resultados_q1/imagem1_abertura_15.png)  
+Closed: ![Imagem](Atividade4/resultados_q1/imagem1_fechamento_15.png)  
+
+#### Imagem: imagem2.jpeg
+
+**SE = se_3**  
+Eroded: ![Imagem](Atividade4/resultados_q1/imagem2_erodido_3.png)  
+Dilated: ![Imagem](Atividade4/resultados_q1/imagem2_dilatado_3.png)  
+Opened: ![Imagem](Atividade4/resultados_q1/imagem2_abertura_3.png)  
+Closed: ![Imagem](Atividade4/resultados_q1/imagem2_fechamento_3.png)  
+
+**SE = se_5**  
+Eroded: ![Imagem](Atividade4/resultados_q1/imagem2_erodido_5.png)  
+Dilated: ![Imagem](Atividade4/resultados_q1/imagem2_dilatado_5.png)  
+Opened: ![Imagem](Atividade4/resultados_q1/imagem2_abertura_5.png)  
+Closed: ![Imagem](Atividade4/resultados_q1/imagem2_fechamento_5.png)  
+
+**SE = se_15**  
+Eroded: ![Imagem](Atividade4/resultados_q1/imagem2_erodido_15.png)  
+Dilated: ![Imagem](Atividade4/resultados_q1/imagem2_dilatado_15.png)  
+Opened: ![Imagem](Atividade4/resultados_q1/imagem2_abertura_15.png)  
+Closed: ![Imagem](Atividade4/resultados_q1/imagem2_fechamento_15.png)  
+
+### 📐 Questão 2 – Canny (Gradiente) e HOG
+
+Foram implementados: suavização gaussiana, cálculo do gradiente com Sobel (magnitude e orientação) e descritor HOG com células 8×8 e 9 bins. Os resultados estão em `Atividade4/resultados_q2/`.
+
+#### Imagem original
+
+![Original](Atividade4/resultados_q2/original.png)
+
+#### Suavização Gaussiana
+
+![Suavizada](Atividade4/resultados_q2/suavizada_gauss.png)
+
+#### Magnitude do gradiente
+
+![Magnitude](Atividade4/resultados_q2/magnitude_visual.png)
+
+#### Visualização HOG
+
+![HOG](Atividade4/resultados_q2/hog_visualizacao.png)
+
+**Dimensão do histograma:** [750, 500, 9]  
+**Número de características:** 3375000
+
+### 🚰 Questão 3 – Segmentação por Watershed
+
+A segmentação utilizou marcadores obtidos a partir da transformada de distância sobre imagem binária limpa (abertura+fechamento). Os resultados estão em `Atividade4/resultados_q3/`.
+
+#### Imagem binária
+
+![Binária](Atividade4/resultados_q3/binaria.png)
+
+#### Imagem limpa (após abertura+fechamento)
+
+![Limpa](Atividade4/resultados_q3/limpa.png)
+
+#### Transformada de distância
+
+![Distância](Atividade4/resultados_q3/distancia.png)
+
+#### Marcadores (máximos locais)
+
+![Marcadores](Atividade4/resultados_q3/marcadores.png)
+
+#### Resultado da watershed (linhas de separação)
+
+![Watershed](Atividade4/resultados_q3/watershed_resultado.png)
+
+#### Sobreposição na imagem original
+
+![Overlay](Atividade4/resultados_q3/segmentacao_overlay.png)
+
+**Número de marcadores encontrados:** 57
 
 ---

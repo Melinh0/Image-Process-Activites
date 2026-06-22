@@ -6,23 +6,24 @@ REPO_ROOT = Path(__file__).resolve().parent
 ATIV1_DIR = REPO_ROOT / "Atividade1"
 ATIV2_DIR = REPO_ROOT / "Atividade2"
 ATIV3_DIR = REPO_ROOT / "Atividade3"
+ATIV4_DIR = REPO_ROOT / "Atividade4"
 
 OUTPUTS_ATIV1 = ATIV1_DIR / "outputs"
 RES_Q1_ATIV2 = ATIV2_DIR / "resultados_q1"
 RES_Q2_ATIV2 = ATIV2_DIR / "resultados_q2"
 RES_Q1_ATIV3 = ATIV3_DIR / "resultados_q1"
 RES_Q2_ATIV3 = ATIV3_DIR / "resultados_q2"
-
+RES_Q1_ATIV4 = ATIV4_DIR / "resultados_q1"
+RES_Q2_ATIV4 = ATIV4_DIR / "resultados_q2"
+RES_Q3_ATIV4 = ATIV4_DIR / "resultados_q3"
 
 def caminho_relativo(absolute_path: Path) -> str:
     return str(absolute_path.relative_to(REPO_ROOT)).replace("\\", "/")
-
 
 def listar_imagens(diretorio: Path, padrao: str = "*.jpg") -> list[Path]:
     if not diretorio.exists():
         return []
     return sorted(diretorio.glob(padrao))
-
 
 def carregar_json(caminho: Path) -> dict:
     if not caminho.exists():
@@ -30,13 +31,12 @@ def carregar_json(caminho: Path) -> dict:
     with open(caminho, "r", encoding="utf-8") as f:
         return json.load(f)
 
-
 def gerar_readme() -> None:
     print("📝 Gerando README.md...")
 
     readme = f"""# 🖼️ Image-Process-Activites
 
-Repositório com implementações de técnicas de **Processamento Digital de Imagens** desenvolvidas como atividades acadêmicas. Os experimentos abrangem filtragem espacial e em frequência, transformada DCT, compressão estilo JPEG, descritores de imagem, mosaico, quantização, entre outros.
+Repositório com implementações de técnicas de **Processamento Digital de Imagens** desenvolvidas como atividades acadêmicas. Os experimentos abrangem filtragem espacial e em frequência, transformada DCT, compressão estilo JPEG, descritores de imagem, mosaico, quantização, morfologia matemática, detecção de bordas, HOG e segmentação por watershed.
 
 **Data de geração do relatório:** {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}
 
@@ -47,6 +47,7 @@ Repositório com implementações de técnicas de **Processamento Digital de Ima
 - `Atividade1/` – Operações básicas (esboço a lápis, correção gama, blend, mosaico, quantização)
 - `Atividade2/` – Filtros espaciais (convolução) e filtragem no domínio da frequência (FFT)
 - `Atividade3/` – Compressão DCT (JPEG simplificado) e descritores estatísticos de imagem
+- `Atividade4/` – Morfologia matemática, Canny (gradiente), HOG e segmentação por watershed
 
 ---
 
@@ -384,6 +385,140 @@ Repositório com implementações de técnicas de **Processamento Digital de Ima
 """
     readme += """---
 """
+
+    readme += """## 🧬 Atividade 4 – Morfologia, Gradiente, HOG e Watershed
+
+"""
+    readme += """### 🧩 Questão 1 – Operações Morfológicas
+
+"""
+    readme += """Foram aplicadas erosão, dilatação, abertura e fechamento em imagens binárias (limiarizadas) com elementos estruturantes de tamanhos 3, 5 e 15. Os resultados estão em `Atividade4/resultados_q1/`.
+
+"""
+    stats_q1_at4 = carregar_json(RES_Q1_ATIV4 / "resultados_q1.json")
+    for img_name, res in stats_q1_at4.items():
+        readme += f"""#### Imagem: {img_name}
+
+"""
+        for se_size, paths in res.items():
+            readme += f"""**SE = {se_size}**  
+"""
+            for op, path in paths.items():
+                if Path(path).exists():
+                    readme += f"""{op.capitalize()}: ![Imagem]({caminho_relativo(Path(path))})  
+"""
+            readme += """
+"""
+
+    readme += """### 📐 Questão 2 – Canny (Gradiente) e HOG
+
+"""
+    readme += """Foram implementados: suavização gaussiana, cálculo do gradiente com Sobel (magnitude e orientação) e descritor HOG com células 8×8 e 9 bins. Os resultados estão em `Atividade4/resultados_q2/`.
+
+"""
+    orig_q2 = RES_Q2_ATIV4 / "original.png"
+    if orig_q2.exists():
+        readme += """#### Imagem original
+
+"""
+        readme += f"""![Original]({caminho_relativo(orig_q2)})
+
+"""
+    suav_q2 = RES_Q2_ATIV4 / "suavizada_gauss.png"
+    if suav_q2.exists():
+        readme += """#### Suavização Gaussiana
+
+"""
+        readme += f"""![Suavizada]({caminho_relativo(suav_q2)})
+
+"""
+    mag_q2 = RES_Q2_ATIV4 / "magnitude_visual.png"
+    if mag_q2.exists():
+        readme += """#### Magnitude do gradiente
+
+"""
+        readme += f"""![Magnitude]({caminho_relativo(mag_q2)})
+
+"""
+    hog_q2 = RES_Q2_ATIV4 / "hog_visualizacao.png"
+    if hog_q2.exists():
+        readme += """#### Visualização HOG
+
+"""
+        readme += f"""![HOG]({caminho_relativo(hog_q2)})
+
+"""
+    stats_q2_at4 = carregar_json(RES_Q2_ATIV4 / "resultados_q2.json")
+    if stats_q2_at4:
+        readme += f"""**Dimensão do histograma:** {stats_q2_at4.get('histogram_shape', 'N/A')}  
+"""
+        readme += f"""**Número de características:** {stats_q2_at4.get('histogram_shape', [0,0,0])[0] * stats_q2_at4.get('histogram_shape', [0,0,0])[1] * stats_q2_at4.get('histogram_shape', [0,0,0])[2]}
+
+"""
+
+    readme += """### 🚰 Questão 3 – Segmentação por Watershed
+
+"""
+    readme += """A segmentação utilizou marcadores obtidos a partir da transformada de distância sobre imagem binária limpa (abertura+fechamento). Os resultados estão em `Atividade4/resultados_q3/`.
+
+"""
+    bin_q3 = RES_Q3_ATIV4 / "binaria.png"
+    if bin_q3.exists():
+        readme += """#### Imagem binária
+
+"""
+        readme += f"""![Binária]({caminho_relativo(bin_q3)})
+
+"""
+    clean_q3 = RES_Q3_ATIV4 / "limpa.png"
+    if clean_q3.exists():
+        readme += """#### Imagem limpa (após abertura+fechamento)
+
+"""
+        readme += f"""![Limpa]({caminho_relativo(clean_q3)})
+
+"""
+    dist_q3 = RES_Q3_ATIV4 / "distancia.png"
+    if dist_q3.exists():
+        readme += """#### Transformada de distância
+
+"""
+        readme += f"""![Distância]({caminho_relativo(dist_q3)})
+
+"""
+    markers_q3 = RES_Q3_ATIV4 / "marcadores.png"
+    if markers_q3.exists():
+        readme += """#### Marcadores (máximos locais)
+
+"""
+        readme += f"""![Marcadores]({caminho_relativo(markers_q3)})
+
+"""
+    ws_q3 = RES_Q3_ATIV4 / "watershed_resultado.png"
+    if ws_q3.exists():
+        readme += """#### Resultado da watershed (linhas de separação)
+
+"""
+        readme += f"""![Watershed]({caminho_relativo(ws_q3)})
+
+"""
+    overlay_q3 = RES_Q3_ATIV4 / "segmentacao_overlay.png"
+    if overlay_q3.exists():
+        readme += """#### Sobreposição na imagem original
+
+"""
+        readme += f"""![Overlay]({caminho_relativo(overlay_q3)})
+
+"""
+    stats_q3_at4 = carregar_json(RES_Q3_ATIV4 / "resultados_q3.json")
+    if stats_q3_at4:
+        readme += f"""**Número de marcadores encontrados:** {stats_q3_at4.get('num_markers', 'N/A')}
+
+"""
+
+    readme += """---
+"""
+
     readme_path = REPO_ROOT / "README.md"
     with open(readme_path, "w", encoding="utf-8") as f:
         f.write(readme)

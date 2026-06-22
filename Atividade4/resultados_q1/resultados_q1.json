@@ -1,0 +1,42 @@
+{
+  "imagem1.jpeg": {
+    "se_3": {
+      "eroded": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_erodido_3.png",
+      "dilated": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_dilatado_3.png",
+      "opened": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_abertura_3.png",
+      "closed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_fechamento_3.png"
+    },
+    "se_5": {
+      "eroded": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_erodido_5.png",
+      "dilated": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_dilatado_5.png",
+      "opened": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_abertura_5.png",
+      "closed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_fechamento_5.png"
+    },
+    "se_15": {
+      "eroded": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_erodido_15.png",
+      "dilated": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_dilatado_15.png",
+      "opened": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_abertura_15.png",
+      "closed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem1_fechamento_15.png"
+    }
+  },
+  "imagem2.jpeg": {
+    "se_3": {
+      "eroded": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_erodido_3.png",
+      "dilated": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_dilatado_3.png",
+      "opened": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_abertura_3.png",
+      "closed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_fechamento_3.png"
+    },
+    "se_5": {
+      "eroded": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_erodido_5.png",
+      "dilated": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_dilatado_5.png",
+      "opened": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_abertura_5.png",
+      "closed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_fechamento_5.png"
+    },
+    "se_15": {
+      "eroded": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_erodido_15.png",
+      "dilated": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_dilatado_15.png",
+      "opened": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_abertura_15.png",
+      "closed": "C:\\Users\\yagom\\Documents\\GitHub\\Image-Process-Activites\\Atividade4\\resultados_q1\\imagem2_fechamento_15.png"
+    }
+  }
+}
