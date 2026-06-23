@@ -144,16 +144,14 @@ class PDF(FPDF):
             code_lines = f.readlines()
         self.set_font("Courier", "", 8)
         for line in code_lines:
-            # Remove trailing newline, sanitiza, e adiciona linha
             line = line.rstrip('\n')
             if len(line) > 0:
                 sanitized = sanitize_text(line)
             else:
                 sanitized = ""
-            # Quebra manual se a linha for muito longa? O multi_cell quebra automaticamente
             self.multi_cell(0, 4, sanitized)
         self.ln(4)
-        self.set_font("Arial", "", 11)  # volta ao normal
+        self.set_font("Arial", "", 11)
 
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
